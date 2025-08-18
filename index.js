@@ -11,7 +11,6 @@ const client = new TwitterApi(BEARER);
 
 // --- Edit/extend this alias map anytime ---
 const COINS = [
-  { symbol: "HYPE", aliases: ['Hyperliquid', '$HYPE', '#HYPE'] },
   { symbol: "LINK", aliases: ['Chainlink', '$LINK', '#LINK'] },
   { symbol: "JUP",  aliases: ['Jupiter', '$JUP', '#JUP', 'JLP'] },
   { symbol: "KMNO", aliases: ['Kamino', '$KMNO', '#KMNO'] },
