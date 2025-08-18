@@ -3,23 +3,19 @@ name: Fetch X crypto feed
 on:
   workflow_dispatch:
   schedule:
-    - cron: '17,47 * * * *'   # optional; twice per hour
+    - cron: '17,47 * * * *'
 
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write   # allow the job to push feed.json
-
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'   # NOTE: no cache lines here
+          node-version: '20'   # ← no cache: 'npm'
 
-      - name: Install dependencies
-        run: npm install --no-audit --no-fund   # <-- NOT "npm ci"
+      - run: npm install --no-audit --no-fund
 
       - name: Run fetch
         run: node index.js
