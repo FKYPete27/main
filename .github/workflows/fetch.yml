@@ -3,50 +3,27 @@ name: Fetch X crypto feed
 on:
   workflow_dispatch:
   schedule:
-    - cron: '17,47 * * * *'   # twice per hour (UTC)
+    - cron: '17,47 * * * *'   # twice an hour
 
 permissions:
-  contents: write
-
-concurrency:
-  group: fetch-x-feed
-  cancel-in-progress: false
+  contents: write             # allow pushing feed.json
 
 jobs:
   fetch:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout (explicit branch)
+      - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-          ref: main            # <<< set this to your real branch if not 'main'
+          ref: main           # now that your branch is 'main'
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 20
 
-      - name: Debug: show repo state
-        run: |
-          pwd
-          git --version
-          node -v
-          npm -v
-          echo "--- tree ---"
-          ls -la
-          echo "--- package.json head ---"
-          head -n 40 package.json || true
-
-      - name: Install deps
-        run: npm install --no-audit --no-fund
-
-      - name: Sanity check secret (no value printed)
-        shell: bash
-        run: |
-          if [ -z "${{ secrets.X_BEARER_TOKEN }}" ]; then
-            echo "ERROR: Missing repository secret X_BEARER_TOKEN"; exit 1;
-          fi
+      - name: Install deps    # use install (not ci) since no lockfile
+        run: npm install
 
       - name: Run fetch
         run: node index.js
@@ -54,17 +31,9 @@ jobs:
           X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
 
       - name: Commit & push feed.json
-        shell: bash
         run: |
-          set -e
-          git status --porcelain
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git pull --rebase
-          if git diff --quiet -- feed.json; then
-            echo "No changes to feed.json"
-          else
-            git add feed.json
-            git commit -m "chore: update feed.json [skip ci]"
-            git push origin HEAD:main   # <<< change 'main' if your branch is different
-          fi
+          git add feed.json
+          git commit -m "chore: update feed.json [skip ci]" || echo "No changes"
+          git push origin HEAD:main
