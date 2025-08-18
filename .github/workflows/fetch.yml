@@ -1,4 +1,4 @@
-mport { TwitterApi } from 'twitter-api-v2';
+import { TwitterApi } from 'twitter-api-v2';
 import fs from 'fs';
 import dayjs from 'dayjs';
 
