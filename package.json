@@ -1,0 +1,10 @@
+{
+  "name": "x-crypto-feed",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "twitter-api-v2": "^1.16.0",
+    "dayjs": "^1.11.10"
+  }
+}
