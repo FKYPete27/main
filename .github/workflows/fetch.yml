@@ -11,11 +11,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # No caching; no lock file needed
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'   # ← no cache: 'npm'
+          node-version: '20'
 
-      - run: npm install --no-audit --no-fund
+      # Install without requiring a lock file
+      - name: Install deps
+        run: npm install --no-audit --no-fund
 
       - name: Run fetch
         run: node index.js
