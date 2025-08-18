@@ -3,10 +3,7 @@ name: Fetch X crypto feed
 on:
   workflow_dispatch:
   schedule:
-    - cron: '17,47 * * * *'   # twice per hour
-
-permissions:
-  contents: write   # needed so the bot can push feed.json
+    - cron: '17,47 * * * *'
 
 jobs:
   fetch:
@@ -16,10 +13,10 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20        # <-- no cache lines while you have no lockfile
+          node-version: '20'   # no cache lines here
 
-      - name: Install deps
-        run: npm install --no-fund --no-audit
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
 
       - name: Run fetch
         run: node index.js
