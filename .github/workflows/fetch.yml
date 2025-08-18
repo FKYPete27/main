@@ -3,26 +3,40 @@ name: Fetch X crypto feed
 on:
   workflow_dispatch:
   schedule:
-    # runs 2x/hour at :17 and :47 to avoid top-of-hour congestion
-    - cron:  '17,47 * * * *'
+    - cron: '17,47 * * * *'
+
+permissions:
+  contents: write   # allow this workflow to push back to the repo
 
 jobs:
   fetch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
-          node-version: '20'
-      - run: npm install --no-audit --no-fund
-      - name: Run fetch
-        run: node index.js
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install deps
+        run: npm install
+
+      - name: Build feed.json
         env:
           X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+        run: node index.js
+
       - name: Commit & push feed.json
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add feed.json
-          git commit -m "chore: update feed.json [skip ci]" || echo "No changes"
+          git add -A
+          # If nothing changed, exit this step cleanly
+          git diff --cached --quiet && exit 0
+          git commit -m "chore: update feed.json [skip ci]"
+          git pull --rebase
           git push
