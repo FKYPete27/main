@@ -3,27 +3,23 @@ name: Fetch X crypto feed
 on:
   workflow_dispatch:
   schedule:
-    - cron: '17,47 * * * *'   # twice an hour
+    - cron: '17,47 * * * *'   # twice per hour
 
 permissions:
-  contents: write             # allow pushing feed.json
+  contents: write   # needed so the bot can push feed.json
 
 jobs:
   fetch:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          ref: main           # now that your branch is 'main'
+      - uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 20        # <-- no cache lines while you have no lockfile
 
-      - name: Install deps    # use install (not ci) since no lockfile
-        run: npm install
+      - name: Install deps
+        run: npm install --no-fund --no-audit
 
       - name: Run fetch
         run: node index.js
@@ -36,4 +32,4 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add feed.json
           git commit -m "chore: update feed.json [skip ci]" || echo "No changes"
-          git push origin HEAD:main
+          git push
