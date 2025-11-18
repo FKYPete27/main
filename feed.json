@@ -1,34 +1,34 @@
 {
-  "generated_at": "2025-11-18T11:29:24.477Z",
+  "generated_at": "2025-11-18T11:51:12.620Z",
   "window_days": 7,
   "coins": [
     {
       "symbol": "LINK",
-      "error": "Error: Request failed with code 400 - Invalid Request: One or more parameters to your request was invalid. (see https://api.twitter.com/2/problems/invalid-request)"
+      "error": "Error: Request failed with code 500"
     },
     {
       "symbol": "JUP",
-      "error": "Error: Request failed with code 429"
+      "error": "Error: Request failed with code 500"
     },
     {
       "symbol": "KMNO",
-      "error": "Error: Request failed with code 429"
+      "error": "Error: Request failed with code 500"
     },
     {
       "symbol": "TOWNS",
-      "error": "Error: Request failed with code 429"
+      "error": "Error: Request failed with code 500"
     },
     {
       "symbol": "IP",
-      "error": "Error: Request failed with code 429"
+      "error": "Error: Request failed with code 500"
     },
     {
       "symbol": "BTC",
-      "error": "Error: Request failed with code 429"
+      "error": "Error: Request failed with code 500"
     },
     {
       "symbol": "ETH",
-      "error": "Error: Request failed with code 429"
+      "error": "Error: Request failed with code 500"
     }
   ]
 }
