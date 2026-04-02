@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-02T11:57:47.127Z",
+  "generated_at": "2026-04-02T13:57:02.308Z",
   "window_days": 7,
   "coins": [
     {
@@ -8,7 +8,7 @@
     },
     {
       "symbol": "JUP",
-      "error": "Error: Request failed with code 503"
+      "error": "Error: Request failed with code 402"
     },
     {
       "symbol": "KMNO",
@@ -24,11 +24,11 @@
     },
     {
       "symbol": "BTC",
-      "error": "Error: Request failed with code 503"
+      "error": "Error: Request failed with code 402"
     },
     {
       "symbol": "ETH",
-      "error": "Error: Request failed with code 402"
+      "error": "Error: Request failed with code 503"
     }
   ]
 }
