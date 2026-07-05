@@ -1,34 +1,34 @@
 {
-  "generated_at": "2026-07-05T12:04:34.950Z",
+  "generated_at": "2026-07-05T14:08:54.250Z",
   "window_days": 7,
   "coins": [
     {
       "symbol": "LINK",
-      "error": "Error: Request failed with code 402"
+      "error": "Error: Request failed with code 503"
     },
     {
       "symbol": "JUP",
-      "error": "Error: Request failed with code 402"
+      "error": "Error: Request failed with code 503"
     },
     {
       "symbol": "KMNO",
-      "error": "Error: Request failed with code 402"
+      "error": "Error: Request failed with code 503"
     },
     {
       "symbol": "TOWNS",
-      "error": "Error: Request failed with code 402"
+      "error": "Error: Request failed with code 503"
     },
     {
       "symbol": "IP",
-      "error": "Error: Request failed with code 402"
+      "error": "Error: Request failed with code 503"
     },
     {
       "symbol": "BTC",
-      "error": "Error: Request failed with code 402"
+      "error": "Error: Request failed with code 503"
     },
     {
       "symbol": "ETH",
-      "error": "Error: Request failed with code 402"
+      "error": "Error: Request failed with code 503"
     }
   ]
 }
