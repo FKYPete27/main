@@ -1,34 +1,34 @@
 {
-  "generated_at": "2026-10-25T20:51:42.652Z",
+  "generated_at": "2026-10-25T23:16:46.062Z",
   "window_days": 7,
   "coins": [
     {
       "symbol": "LINK",
-      "error": "Error: Request failed with code 402"
+      "error": "Error: Request failed with code 402 - Payment Required: credits depleted (see https://api.x.com/2/problems/credits-depleted)"
     },
     {
       "symbol": "JUP",
-      "error": "Error: Request failed with code 402"
+      "error": "Error: Request failed with code 402 - Payment Required: credits depleted (see https://api.x.com/2/problems/credits-depleted)"
     },
     {
       "symbol": "KMNO",
-      "error": "Error: Request failed with code 402"
+      "error": "Error: Request failed with code 402 - Payment Required: credits depleted (see https://api.x.com/2/problems/credits-depleted)"
     },
     {
       "symbol": "TOWNS",
-      "error": "Error: Request failed with code 402"
+      "error": "Error: Request failed with code 402 - Payment Required: credits depleted (see https://api.x.com/2/problems/credits-depleted)"
     },
     {
       "symbol": "IP",
-      "error": "Error: Request failed with code 402"
+      "error": "Error: Request failed with code 402 - Payment Required: credits depleted (see https://api.x.com/2/problems/credits-depleted)"
     },
     {
       "symbol": "BTC",
-      "error": "Error: Request failed with code 402"
+      "error": "Error: Request failed with code 402 - Payment Required: credits depleted (see https://api.x.com/2/problems/credits-depleted)"
     },
     {
       "symbol": "ETH",
-      "error": "Error: Request failed with code 402"
+      "error": "Error: Request failed with code 402 - Payment Required: credits depleted (see https://api.x.com/2/problems/credits-depleted)"
     }
   ]
 }
